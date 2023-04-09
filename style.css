@@ -1,0 +1,98 @@
+*{margin: 0px; padding: 0px;}
+html, body {width: 100%; height: 100%;}
+
+body{
+
+    background-image: radial-gradient(
+        circle, #ffd300,#ef8d22,
+                #c65035,#892137, #460329  
+    );
+}
+
+/*Now start adding css for each div 1:16*/
+
+.playing-card{
+
+    background:transparent;
+    width: 240px;
+    height: 340px;
+    display: inline-block; /*Note to me: what this do? 1:52*/
+    margin: 10px;
+    perspective: 1000px;
+    /*border: 1px solid #000;*//*apparently  you dont need this 3:20*/
+
+}
+
+.flip-card{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius:20px;
+    border: 2px solid #000; 
+    transition: transform .8s; /*transition speed changed from  .3 to .8 sec 4:00*/
+    transform-style: preserve-3d ;
+}
+/*This is where the magic happens 3:32*/
+.playing-card:hover .flip-card {
+
+    transform: rotateY(180deg); /*it flipping works 3:55*/
+
+}
+
+/*Design for front and back 4:19*/
+
+.card-front, .card-back{
+
+
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden; /* 4:50 apparently this prevents image from mirroring once its flipped*/
+
+}
+
+.card-front{
+
+    background-color: green;
+    transform: rotateY(180deg);
+}
+
+.card-back{
+
+    background-color: red;
+    /*transform: rotateY(180deg);*/
+
+}
+
+.card-front img, .card-back img{
+
+    width: 100%; /*6:05 Design of img tag*/
+    height: 100%;
+    border-radius: 20px;
+
+}
+
+/* 6:48 Style the Container*/
+/*No css library is used so  this may not be fully responsive*/
+
+
+/*We have 4 cards, eah has 240px width so total is 960px, and*/
+/*we are using margin of 10 + 10 = 20px for each so  total is 80 px*/
+/*So, Total width sould be more than 1040px*/
+/* 8:02*/
+
+
+.container {
+
+    width: 100%;
+    max-width: 1060px;/* See note above*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+
+
+}
